@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Mi Página Web</title>
+</head>
+<body>
+
+    <div class="frame" id="menu-frame">
+        <h2>Menú</h2> <!-- Título del menú -->
+        <ul class="menu">
+            <li>
+                <a href="#" onclick="showInfo('inicio')">Inicio</a>
+                <p class="info">Bienvenido a nuestra página principal.</p> <!-- Introducción para la opción Inicio -->
+            </li>
+            <li>
+                <a href="#" onclick="showInfo('servicios')">Servicios</a>
+                <p class="info">Descubre los servicios que ofrecemos.</p> <!-- Introducción para la opción Servicios -->
+            </li>
+            <li>
+                <a href="#" onclick="showInfo('contacto')">Contacto</a>
+                <p class="info">Ponte en contacto con nosotros para más información.</p> <!-- Introducción para la opción Contacto -->
+                <ul class="submenu">
+                    <li><a href="#" onclick="showInfo('soporte')">Soporte</a></li>
+                    <li><a href="#" onclick="showInfo('consultas')">Consultas</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div id="info-display" class="info-display"></div> <!-- Contenedor para mostrar la información -->
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="frame" id="form-frame">
+        <!-- Sección Formulario -->
+        <section id="formulario">
+            <div class="form-container">
+                <h2>Formulario</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nombre Completo</label>
+                        <input type="text" id="name" name="name" placeholder="Escribe tu nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="Escribe tu correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Género</label>
+                        <div class="form-group-radio">
+                            <input type="radio" id="male" name="gender" value="male" required>
+                            <label for="male">Masculino</label>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Femenino</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="topic">Selecciona un tema</label>
+                        <select id="topic" name="topic">
+                            <option value="consultas">Consultas</option>
+                            <option value="soporte">Soporte Técnico</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje aquí" required></textarea>
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="frame" id="internal-frame">
+        <!-- Página interna -->
+        <iframe src="inde.html" width="100%" height="100%" style="border:none;"></iframe>
+    </div>
+
+    <script>
+        function showInfo(option) {
+            const infoDisplay = document.getElementById('info-display');
+            let infoText = '';
+
+            switch (option) {
+                case 'inicio':
+                    infoText = '<h3>Inicio</h3><p>Bienvenido a nuestra página principal. Aquí encontrarás información sobre nuestros servicios y cómo contactarnos.</p>';
+                    break;
+                case 'servicios':
+                    infoText = '<h3>Servicios</h3><p>Ofrecemos una variedad de servicios para satisfacer tus necesidades. Contáctanos para más detalles.</p>';
+                    break;
+                case 'contacto':
+                    infoText = '<h3>Contacto</h3><p>Puedes ponerte en contacto con nosotros a través de nuestro formulario o nuestras redes sociales.</p>';
+                    break;
+                case 'soporte':
+                    infoText = '<h3>Soporte</h3><p>Si necesitas ayuda, aquí encontrarás la asistencia que buscas.</p>';
+                    break;
+                case 'consultas':
+                    infoText = '<h3>Consultas</h3><p>Realiza tus consultas y estaremos encantados de responderte.</p>';
+                    break;
+                default:
+                    infoText = '<p>Seleccione una opción del menú.</p>';
+            }
+
+            infoDisplay.innerHTML = infoText; // Mostrar la información correspondiente
+        }
+    </script>
+</body>
+</html>
+
